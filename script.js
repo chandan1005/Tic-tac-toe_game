@@ -22,7 +22,7 @@ boxes.forEach((box) =>{
         }else{
             box.innerText="X";
             box.classList.add("X");
-            box.classList.remove("0");
+            box.classList.remove("O");
             turn0=true;
             count++;
         }
@@ -58,12 +58,18 @@ const showwinner=(winner)=>{
 const disablebox=()=>{
     for(let box of boxes){
         box.disabled=true;
+        count=0;
     }
 }
 //reset 
 reset.addEventListener("click",()=>{
     for(let box of boxes){
         box.innerText="";
+        w.classList.add("hide");
+        for(let box of boxes){
+            box.disabled=false;
+        }
+        count=0;
     }
 });
 //newfuncion to clear
@@ -71,5 +77,8 @@ newgame.addEventListener("click",()=>{
     for(let box of boxes){
         box.innerText="";
         w.classList.add("hide");
+        for(let box of boxes){
+            box.disabled=false;
+        }
     }
 });
